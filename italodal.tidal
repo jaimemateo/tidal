@@ -1,0 +1,80 @@
+cps 0.5
+
+-- Tutorial
+
+d1 $ every 3 (0.75 ~>) $ e 5 8 $ sound "[bd sn hh cp] [id120_beat:4/4]"
+
+d2 $ s "id120_drum*8"
+    # n (irand 30)
+
+d3 $ s "arpy*8" # n (irand 30)
+
+d4 $ every 3 (|+| speed "0.5") $ s "trump*2" # n (irand 40) # gain " 1.5 1.4 1.3 1.2 1.1. 1 1.1 1.2 1.3 1.4 1.5"
+
+d1 silence
+
+d2 silence
+
+d3 silence
+
+d4 silence
+
+hush
+
+-- Día 1
+
+d1 $ every 3 (0.75 ~>)
+    $ sound "[id120_drum] [a sn]*2"
+    # gain "0.9 0.7"
+
+d2 $ every 2 (|+| speed "0.5")
+    $ s (brak "id120_beat*2")
+    # n (irand 30)
+    # gain "0.9"
+
+d3
+    $ every 4 (0.25 <~)
+    $ every 3 (rev)
+    $ sound "[id120_bass] [bass bass1]?*2"
+    # gain "1.5 0.8"
+
+d3 silence
+
+hush
+
+------------------------------------------------------------------------
+
+d1
+  $ trunc 0.25
+  $ sound "[id120_drum] clap clap"
+  # gain "1" -- Subir a 3 y bajar
+
+d2
+  $ jux (rev)
+  $ trunc 0.5
+  $ sound "[id120_beat]"
+  # gain "0.8 1.3"
+
+d3
+  $ every 3 (rev)
+  $ midinote "60 62*2 67 65"
+  # s "tutorial4"
+  # sustain "0.4 0.2"
+  # lfo "1"
+  # gain "1.4"
+
+d4 $ n "[c2 e3 g4 c5 c4 c3]*4/3" # s "superchip" # sustain "0.2"
+  # pitch2 "[1.2 1.5 2 3]" # pitch3 "[1.44 2.25 4 9]"
+  # voice (slow 4 "0 0.25 0.5 0.75") # slide "[0 0.1]/8" # speed "4"
+
+hush
+
+
+
+
+
+
+
+
+
+

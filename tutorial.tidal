@@ -1,0 +1,53 @@
+-- Rythmic sequences
+
+d1 $ sound "bd" -- First sample in bd folder
+
+d2 $ sound "bd:3" -- 4th sample in bd folder
+
+d3 $ sound "bd sn hh cp mt arpy drum odx bd arpy bass2 feel future" -- Cycle (main loop of time)
+
+solo $ d1 $ sound "bd sn" -- Silence all but this one
+
+-- Patterns within Patterns
+
+d1 $ sound "[bd bd bd bd] [sn]" -- Grouping
+
+d1 $ sound "[bd bd bd bd, sn]"
+
+d1 $ sound "[bd bd bd, sn cp sn cp]" -- Layering, Polyrithms
+
+hush
+
+-- Pattern Repetition and Speed
+
+d1 $ sound "bd*3" -- plays the bd sample three times each cycle
+
+d1 $ sound "bd/3" -- plays the bd samples only once each third cycle
+
+-- Functions
+
+d1 $ rev (sound "[bd bd] [bd [sn [sn sn] sn] sn]")
+
+d1 $ every 4 (rev) (sound "bd*2 [bd [sn sn*2 sn] sn]")
+
+d1 $ density 4 $ sound "bd*2 [bd [sn sn*2 sn] sn]" --
+
+d1 $ sound (every 4 (density 4) "bd*2 [bd [sn sn*2 sn] sn]")
+
+hush
+
+
+-- Effects
+
+d1 $ sound "bd*4" # gain "0.5" -- Gain
+
+d2 $ sound "bd*4" # gain "0.8" # delay "10" # vowel "a" -- Delay / Vowel
+
+d3 $ every 2 (|=| speed "4") $ sound "arpy*4" |=| speed "1" --
+
+d4 $ every 2 (|*| speed "1.5") $ sound "arpy*4" |=| speed "1" --
+
+d5 $ every 3 (|-| up "3") $ every 2 (|+| up "5") $ sound "arpy*4" |=| up "0 2 4 5" --
+
+
+
